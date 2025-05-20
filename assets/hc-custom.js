@@ -14,7 +14,7 @@ $(document).on('click', '.hc-atc', function(e) {
       document.dispatchEvent(cartBuildEvent);
     },
     error: function(message) {
-      var response = eval('(' + message.responseText + ')');
+      var response = JSON.parse(message.responseText);
       response = response.description;
       if(response.indexOf('All 0') != -1){
         response = 'The item is out of stock!';
